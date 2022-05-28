@@ -8,7 +8,9 @@ Pengerjaan Praktikum - 2 Probabilitas dan Statistika
 
 ## Penjelasan Soal 1
 Peneliti melakukan penelitian mengenai pengaruh aktivitas 𝐴 terhadap kadar saturasi oksigen pada manusia. Peneliti tersebut mengambil sampel sebanyak 9 responden. Pertama, sebelum melakukan aktivitas 𝐴, peneliti mencatat kadar saturasi oksigen dari 9 responden tersebut. Kemudian, 9 responden tersebut diminta melakukan aktivitas 𝐴. Setelah 15 menit, peneliti tersebut mencatat kembali kadar saturasi oksigen dari 9 responden tersebut. Berikut data dari 9 responden mengenai kadar saturasi oksigen sebelum dan sesudah melakukan aktivitas 𝐴.
-![alt text](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel1.PNG)
+
+![tabel-data-1](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel1.PNG)
+
 Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari responden ke-3 ketika belum melakukan aktivitas 𝐴 sebanyak 67, dan setelah melakukan aktivitas 𝐴 sebanyak 70.
 
 ### 1.A
@@ -56,7 +58,9 @@ Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahu
 
 ## Penjelasan Soal 3
 Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut
-![alt text](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel3.PNG)
+
+![tabel-data-3](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel3.PNG)
+
 Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil diatas. Asumsikan nilai variancenya sama, apakah ada perbedaan pada rata-ratanya (α= 0.05)?
 
 ### 3.A
@@ -149,6 +153,7 @@ Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitianny
 ## Penjelasan Soal 5
 Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui pengaruh suhu operasi (100˚C, 125˚C dan 150˚C) dan tiga jenis kaca pelat muka (A, B, dan C) pada keluaran cahaya tabung osiloskop. Percobaan dilakukan sebanyak 27 kali.
 
+![tabel-data-5](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel5.PNG)
 ### 5.A
 > Buatlah plot sederhana untuk visualisasi data
 
