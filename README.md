@@ -105,7 +105,7 @@ Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil d
 ## Penjelasan Soal 4
 Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. H0 : Tidak ada perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama.
 
-[7bb7b7cc]: https://Chroax/P2_Probstat_E_5025201184/blob/main/tabel/tabel4.txt  "Tabel-4"
+[Tabel Data 4](https://rstatisticsandresearch.weebly.com/uploads/1/0/2/6/1026585/onewayanova.txt)
 
 ### 4.A
 > Buatlah masing masing jenis spesies menjadi 3 subjek "Grup" (grup 1, grup 2, grup 3). Lalu Gambarkan plot kuantil normal untuk setiap kelompok dan lihat apakah ada outlier utama dalam homogenitas varians.
