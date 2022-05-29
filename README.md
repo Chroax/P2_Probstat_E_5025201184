@@ -68,6 +68,7 @@ Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahu
 ```    
 ### 2.C
 > Buatlah kesimpulan berdasarkan P-Value yang dihasilkan!
+
     Nilai z dicari dengan
 
 ![output-2c-1](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-1.png)
