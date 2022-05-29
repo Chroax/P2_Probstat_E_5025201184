@@ -138,45 +138,79 @@ Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitianny
 ### 4.A
 > Buatlah masing masing jenis spesies menjadi 3 subjek "Grup" (grup 1, grup 2, grup 3). Lalu Gambarkan plot kuantil normal untuk setiap kelompok dan lihat apakah ada outlier utama dalam homogenitas varians.
 
-    ```R
+```R
+    library(ggplot2)
 
-    ```    
-    [Screenshot]
+    oneWayData  <- read.table(url("https://rstatisticsandresearch.weebly.com/uploads/1/0/2/6/1026585/onewayanova.txt"))
+    dim(oneWayData)
+    head(oneWayData)
+    attach(oneWayData)
+
+    oneWayData$Length <- as.factor(oneWayData$V2)
+    oneWayData$Group <- as.factor(oneWayData$V1)
+    oneWayData$Group = factor(oneWayData$Group,labels = c("Kucing Oren","Kucing Hitam","Kucing Putih","Kucing Oren"))
+    class(oneWayData$Group)
+
+    grup1 <- subset(oneWayData, Group == "Kucing Oren")
+    grup2 <- subset(oneWayData, Group == "Kucing Hitam")
+    grup3 <- subset(oneWayData, Group == "Kucing Putih")
+
+    ggplot(
+      data = grup1, 
+      aes(sample = Length)
+      ) + geom_qq()
+    
+    ggplot(
+      data = grup2, 
+      aes(sample = Length)
+      ) + geom_qq()
+    
+    ggplot(
+      data = grup3, 
+      aes(sample = Length)
+      ) + geom_qq()
+```    
+#### Penjelasan
+    Buatlah masing masing jenis spesies menjadi 3 subjek "Grup" (grup 1,grup 2,grup 3). Lalu Gambarkan plot kuantil normal untuk setiap kelompok dan lihat apakah ada outlier utama dalam homogenitas varians. Langkah pertama mengambil data dari link yang telah disediadakan. Selanjutnya membuat myFile menjadi group. Setelah itu, dicek apakah dia menyimpan nilai di groupnya. Lalu bagi tiap valuer menjadi 3 bagian ke 3 grup.
 ### 4.B
 > Carilah atau periksalah Homogeneity of variances nya. Berapa nilai p yang didapatkan? Apa hipotesis dan kesimpulan yang dapat diambil?
 
     ```R
-
+    bartlett.test(oneWayData$Group, oneWayData$Length)
     ```    
-    [Screenshot]
+#### Penjelasan
+    Setelah di jalankan maka nilai p-value = 0.8054. Kesimpulan yang didapatkan yaitu Bartlett's K-squared memiliki nilai sebesar 0.43292 dan df bernilai 2
 ### 4.C
 > Untuk uji ANOVA (satu arah), buatlah model linier dengan Panjang versus Grup dan beri nama model tersebut model 1.
 
-    ```R
+![output-4c](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/4C.png)
 
-    ```    
-    [Screenshot]
+```R
+    qqnorm(grup1$Length)
+    qqline(grup1$Length)
+```    
 ### 4.D
 > Dari Hasil Poin C, berapakah nilai-p? Apa yang dapat Anda simpulkan dari H0?
 
-    ```R
-
-    ```    
-    [Screenshot]
+    Dari Hasil Poin C, Berapakah nilai-p ? , Apa yang dapat Anda simpulkan dari H0? Setelah di jalankan maka nilai p-value = 0.8054.
 ### 4.E
 > Verifikasilah jawaban model 1 dengan Post-hoc Test Tukey HSD, dari nilai p yang didapatkan apakah satu jenis kucing lebih panjang dari yang lain? Jelaskan.
 
-    ```R
+![output-4e](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/4E.png)
 
-    ```    
-    [Screenshot]
+```R
+    model <- lm(Length~Group, data = oneWayData)
+    anova(model)
+    TukeyHSD(aov(model))
+```    
 ### 4.F
 > Visualisasikan data dengan ggplot2
 
-    ```R
-
-    ```    
-    [Screenshot]
+```R
+    ggplot(
+      oneWayData, 
+      aes(x = Group, y = Length)) + geom_boxplot(colour = "black") + scale_x_discrete() + xlab("Species") + ylab("Length")
+```    
 
 ## Penjelasan Soal 5
 Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui pengaruh suhu operasi (100˚C, 125˚C dan 150˚C) dan tiga jenis kaca pelat muka (A, B, dan C) pada keluaran cahaya tabung osiloskop. Percobaan dilakukan sebanyak 27 kali.
