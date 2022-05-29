@@ -225,7 +225,7 @@ Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui p
 ```    
 ### 5.D
 > Lakukan uji Tukey
-![output-5d](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5D.PNG)
+![output-5d](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5D.png)
 
 ```R
     tukey <- TukeyHSD(anova)
