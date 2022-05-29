@@ -15,8 +15,10 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
 
 ### 1.A
 > Carilah Standar Deviasi dari data selisih pasangan pengamatan tabel diatas.
+    
+![output-1a](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/1A.PNG)
 
-    ```R
+```R
     before <- c(78, 75, 67, 77, 70, 72, 28, 74, 77)
     after <- c(100, 95, 70, 90, 90, 90, 89, 90, 100)
 
@@ -25,56 +27,55 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
 
     sd_after <- sd(after)
     sd_after
-    ```
-
-    ![output-1a](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/1A.PNG)
+```
 ### 1.B
 > Carilah nilai t (p-value)
 
-    ```R
+![output-1a](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/1B.PNG)
+        
+```R
     t.test(before, after, alternative = "greater", var.equal = FALSE)
-    ```
-
-    ![output-1a](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/1B.PNG)
+```
 ### 1.C
 > Tentukanlah apakah terdapat pengaruh yang signifikan secara statistika dalam hal kadar saturasi oksigen , sebelum dan sesudah melakukan aktivitas 𝐴 jika diketahui tingkat signifikansi 𝛼 = 5% serta H0.
 
-    ```R
+![output-1c](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/1C.PNG)
+    
+```R
     var.test(before, after)
     t.test(before, after, mu = 0, alternative = "two.sided", var.equal = TRUE)
-    ```
+```
 
-    ![output-1c](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/1C.PNG)
 ## Penjelasan Soal 2
 Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahun. Untuk menguji klaim ini, 100 pemilik mobil yang dipilih secara acak diminta untuk mencatat jarak yang mereka tempuh. Jika sampel acak menunjukkan rata-rata 23.500 kilometer dan standar deviasi 3900 kilometer. 
 
 ### 2.A
 > Apakah Anda setuju dengan klaim tersebut?
 
-    ```R
+```R
     Setuju
 
-    ```    
+```    
 ### 2.B
 > Jelaskan maksud dari output yang dihasilkan!
 
-    ```R
+![output-2b](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2B.PNG)
+
+```R
     install.packages("BSDA")
     library(BSDA)
     tsum.test(mean.x=23500, sd(3900), n.x=100)
-    ```    
-
-    ![output-2b](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2B.PNG)
+```    
 ### 2.C
 > Buatlah kesimpulan berdasarkan P-Value yang dihasilkan!
     Nilai z dicari dengan
 
-    ![output-2c-1](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-1.PNG)
+![output-2c-1](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-1.PNG)
 
     Dengan demikin p-value didapat dengan
-    ![output-2c-2](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-2.PNG)
+![output-2c-2](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-2.PNG)
 
-    ![output-2c-3](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-3.PNG)
+![output-2c-3](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-3.PNG)
     
     Maka disimpulkan bahwa mobil yang dikemudikan rata-rata lebih dari 20.000KM/Tahun
 ## Penjelasan Soal 3
