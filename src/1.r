@@ -13,5 +13,4 @@ t.test(before, after, alternative = "greater", var.equal = FALSE)
 
 # 1c
 var.test(before, after)
-
 t.test(before, after, mu = 0, alternative = "two.sided", var.equal = TRUE)
