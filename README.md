@@ -12,7 +12,6 @@ Peneliti melakukan penelitian mengenai pengaruh aktivitas 𝐴 terhadap kadar sa
 ![tabel-data-1](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel1.PNG)
 
 Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari responden ke-3 ketika belum melakukan aktivitas 𝐴 sebanyak 67, dan setelah melakukan aktivitas 𝐴 sebanyak 70.
-
 ### 1.A
 > Carilah Standar Deviasi dari data selisih pasangan pengamatan tabel diatas.
     
@@ -48,7 +47,6 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
 
 ## Penjelasan Soal 2
 Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahun. Untuk menguji klaim ini, 100 pemilik mobil yang dipilih secara acak diminta untuk mencatat jarak yang mereka tempuh. Jika sampel acak menunjukkan rata-rata 23.500 kilometer dan standar deviasi 3900 kilometer. 
-
 ### 2.A
 > Apakah Anda setuju dengan klaim tersebut?
 
@@ -79,51 +77,58 @@ Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahu
 ![output-2c-3](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/2C-3.png)
     
     Maka disimpulkan bahwa mobil yang dikemudikan rata-rata lebih dari 20.000KM/Tahun
+
 ## Penjelasan Soal 3
 Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut
 
 ![tabel-data-3](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel3.PNG)
 
 Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil diatas. Asumsikan nilai variancenya sama, apakah ada perbedaan pada rata-ratanya (α= 0.05)?
-
 ### 3.A
 >  H0 dan H1
 
-    ```R
+    H0 dan H1 dilakukan perhitungan H0 sebagai berikut
 
-    ```    
-    [Screenshot]
+![output-3a-1](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/3A-1.png)
+
+    dilakukan perhitungan H1 sebagai berikut
+
+![output-3a-2](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/3A-2.png)
 ### 3.B
 > Hitung Sampel Statistik
 
-    ```R
+![output-3b](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/3B.PNG)
 
-    ```    
-    [Screenshot]
+ ```R
+    tsum.test(mean.x=3.64, s.x = 1.67, n.x = 19, 
+          mean.y =2.79 , s.y = 1.32, n.y = 27, 
+          alternative = "greater", var.equal = TRUE)
+```    
 ### 3.C
 > Lakukan Uji Statistik (df =2)
 
-    ```R
+![output-3c](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/3C.PNG)
 
-    ```    
-    [Screenshot]
+```R
+    install.packages("mosaic")
+    library(mosaic)
+    plotDist(dist='t', df=2, col="blue")
+```    
 ### 3.D
 > Nilai Kritikal
 
-    ```R
+![output-3d](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/3D.PNG)
 
-    ```    
-    [Screenshot]
+```R
+    qchisq(p = 0.05, df = 2, lower.tail=FALSE)
+```    
 ### 3.E
 > Keputusan
 
-    ```R
-
-    ```    
-    [Screenshot]
+    Teori keputusan adalah teori formal pengambilan keputusan di bawah ketidakpastian. Aksinya adalah : `({a}_{a∈A})`. Kemungkinan konsekuensi : `({c}_{c∈C})` (tergantung pada keadaan dan tindakan). Maka, keputusan dapat dibuat dengan `t.test`
 ### 3.F
 > Buatlah Kesimpulan
-
+    Kesimpulan yang didapatkan yaitu perbedaan rata-rata yang terjadi tidak ada jika dilihat dari uji statistik dan akan ada tetapi tidak signifikan jika dipengaruhi nilai kritikal.
 
 ## Penjelasan Soal 4
 Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. H0 : Tidak ada perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama.
@@ -179,36 +184,64 @@ Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui p
 ![tabel-data-5](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/tabel5.PNG)
 ### 5.A
 > Buatlah plot sederhana untuk visualisasi data
+![output-5a](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5A.PNG)
 
-    ```R
+```R
+    install.packages("multcompView")
+    library(readr)
+    library(ggplot2)
+    library(multcompView)
+    library(dplyr)
 
-    ```    
-    [Screenshot]
+    GTL <- read_csv("GTL.csv")
+    head(GTL)
+
+    str(GTL)
+
+    qplot(x = Temp, y = Light, geom = "point", data = GTL) +
+      facet_grid(.~Glass, labeller = label_both)
+```    
 ### 5.B
 > Lakukan uji ANOVA dua arah
+![output-5b](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5B.PNG)
 
-    ```R
+```R
+    GTL$Glass <- as.factor(GTL$Glass)
+    GTL$Temp_Factor <- as.factor(GTL$Temp)
+    str(GTL)
 
-    ```    
-    [Screenshot]
+    anova <- aov(Light ~ Glass*Temp_Factor, data = GTL)
+    summary(anova)
+```    
 ### 5.C
 > Tampilkan tabel dengan mean dan standar deviasi keluaran cahaya untuk setiap perlakuan (kombinasi kaca pelat muka dan suhu operasi)
+![output-5c](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5C.PNG)
 
-    ```R
-
-    ```    
-    [Screenshot]
+```R
+    data_summary <- group_by(GTL, Glass, Temp) %>%
+    summarise(mean=mean(Light), sd=sd(Light)) %>%
+      arrange(desc(mean))
+    print(data_summary)
+```    
 ### 5.D
 > Lakukan uji Tukey
+![output-5d](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5D.PNG)
 
-    ```R
-
-    ```    
-    [Screenshot]
+```R
+    tukey <- TukeyHSD(anova)
+    print(tukey)
+```    
 ### 5.E
 > Gunakan compact letter display untuk menunjukkan perbedaan signifikan antara uji Anova dan uji Tukey
+![output-5e](https://github.com/Chroax/P2_Probstat_E_5025201184/blob/main/img/5E.PNG)
 
-    ```R
+```R
+    tukey.cld <- multcompLetters4(anova, tukey)
+    print(tukey.cld)
 
-    ```    
-    [Screenshot]
+    cld <- as.data.frame.list(tukey.cld$`Glass:Temp_Factor`)
+    data_summary$Tukey <- cld$Letters
+    print(data_summary)
+
+    write.csv("GTL_summary.csv")
+```    
